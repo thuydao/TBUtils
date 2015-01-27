@@ -12,6 +12,24 @@
 
 @end
 
+#pragma mark - alloc
+@implementation NSArray (alloc)
+
+/**
+ *  tb_withArary
+ *
+ *  @param anArray NSArray
+ *
+ *  @return NSArray
+ */
++ (NSArray *)tb_withArary:(NSArray *)anArray
+{
+    return [[NSArray alloc] initWithArray:anArray];
+}
+
+@end
+
+
 #pragma mark - Validate
 
 @implementation NSArray (Validate)
@@ -113,6 +131,37 @@
     
     return nil;
 }
+
+/**
+ *  tb_indexOfObject
+ *
+ *  @param anObject id
+ *
+ *  @return NSInteger
+ */
+- (NSInteger)tb_indexOfObject:(id)anObject
+{
+    return [self indexOfObject:anObject];
+}
+
+/**
+ *  tb_objectOfClass
+ *
+ *  @param aClass Class
+ *
+ *  @return id
+ */
+- (id)tb_objectOfClass:(Class)aClass
+{
+    for (id anObject in self) {
+        if ([anObject isKindOfClass:aClass]) {
+            return anObject;
+        }
+    }
+    return nil;
+}
+
+
 
 @end
 

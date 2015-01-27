@@ -7,8 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 @interface NSArray (TBCore)
+
+@end
+
+#pragma mark - alloc
+@interface NSArray (alloc)
+
+/**
+ *  tb_withArary
+ *
+ *  @param anArray NSArray
+ *
+ *  @return NSArray
+ */
++ (NSArray *)tb_withArary:(NSArray *)anArray;
 
 @end
 
@@ -71,6 +86,23 @@
  */
 - (id)tb_lastObject;
 
+/**
+ *  tb_indexOfObject
+ *
+ *  @param anObject id
+ *
+ *  @return NSInteger
+ */
+- (NSInteger)tb_indexOfObject:(id)anObject;
+
+/**
+ *  tb_objectOfClass
+ *
+ *  @param aClass Class
+ *
+ *  @return id
+ */
+- (id)tb_objectOfClass:(Class)aClass;
 
 
 @end
