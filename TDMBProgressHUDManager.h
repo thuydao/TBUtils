@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBBaseObject.h"
 //#import "MBProgressHUD.h"
 
 #define HIDELOADING [TDMBProgressHUDManager hideLoading];
 #define SHOWLOADING [TDMBProgressHUDManager showLoading];
 
 
-@interface TDMBProgressHUDManager : NSObject
+@interface TDMBProgressHUDManager : TBBaseObject
 
 @property (nonatomic, assign) NSInteger countProgress;
-
-+ (instancetype)sharedInstance;
 
 + (void)showLoading;
 

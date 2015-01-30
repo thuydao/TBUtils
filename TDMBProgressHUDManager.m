@@ -11,14 +11,9 @@
 
 @implementation TDMBProgressHUDManager
 
-+ (instancetype)sharedInstance {
-    static TDMBProgressHUDManager *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[TDMBProgressHUDManager alloc] init];
-        sharedInstance.countProgress = 0;
-    });
-    return sharedInstance;
+- (void)initialize
+{
+    self.countProgress = 0;
 }
 
 /// + 1 into coutProgress. When count == 1, show loading
