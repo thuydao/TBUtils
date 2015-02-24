@@ -7,8 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TBBaseObject.h"
 
-@interface TBAlert : TBBaseObject
+#define TBCustomAlert(msg) [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show]
+ //[TBAlert showMessage:msg]//
+
+
+@interface TBAlert : NSObject <UIAlertViewDelegate>
+
+@property (nonatomic, retain) UIAlertView *alvMessage;
+
+#pragma mark - singleton
+
+/**
+ *  sharedInstance
+ *
+ *  @return v
+ */
++ (instancetype)sharedInstance;
+
+/**
+ *  showMessage
+ *
+ *  @param message message
+ */
++ (void)showMessage:(NSString *)message;
 
 @end
